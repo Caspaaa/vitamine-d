@@ -1,0 +1,27 @@
+.DS_Store
+.venv/
+node_modules/
+__pycache__/
+*.log
+
+# Spike data that is regenerable or large (each spike documents how to recreate it)
+spikes/s1-shadow/data/
+spikes/s1-shadow/web/public/tiles/
+spikes/s1-shadow/web/public/tiles-dtm/
+spikes/s1-shadow/web/public/s2/
+spikes/s1-shadow/web/dist/
+spikes/s2-horizon/out/
+spikes/s3-terraces/data/crops/
+spikes/s3-terraces/data/features/
+spikes/s3-terraces/data/sheets/
+spikes/s3-terraces/data/zoom/
+spikes/s3-terraces/data/guess/
+spikes/s3-terraces/data/*.npz
+spikes/s3-terraces/data/sun_*.json
+spikes/s4-pipeline/data/
+spikes/s4-pipeline/out/
+spikes/s4-pipeline/snapshot/
+spikes/s4-pipeline/hosting/site*/
+spikes/s4-pipeline/hosting/package-lock.json
+spikes/s3-terraces/data/venues-raw.json
+spikes/s3-terraces/data/venues.json

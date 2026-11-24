@@ -1,0 +1,15 @@
+__pycache__/
+# Regenerable intermediates (see docs/spikes/S3-terrace-positions.md, "Reproduce")
+data/crops/
+data/features/
+data/sheets/
+data/zoom/
+data/guess/
+data/masks.npz
+data/pred_b_prob.npz
+data/sun_rows.json
+data/sun_input.json
+data/fetch2.log
+data/review-server.log
+data/verify*.json
+# Kept: reference.mine.json, reference.reviewed.json, reference.json (first pass), selected*.json, venues*.json, review_list.json, guess_A.json

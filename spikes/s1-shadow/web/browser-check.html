@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Browser data-integrity check</title></head>
+  <body style="font:12px ui-monospace,monospace">
+    <pre id="out">running…</pre>
+    <script type="module">
+      // Decodes one height tile through a 2D canvas exactly like atlas.ts does, and returns the raw bytes.
+      // Compare them with the file's true values to see whether the browser alters canvas reads.
+      const url = new URLSearchParams(location.search).get('tile') ?? '/tiles/17/67118/43969.png';
+      const blob = await (await fetch(url)).blob();
+      const bmp = await createImageBitmap(blob, { premultiplyAlpha: 'none', colorSpaceConversion: 'none' });
+      const read = (ctx) => {
+        ctx.drawImage(bmp, 0, 0);
+        return Array.from(ctx.getImageData(0, 0, 256, 256).data);
+      };
+      const off = new OffscreenCanvas(256, 256).getContext('2d', { willReadFrequently: true });
+      const dom = document.createElement('canvas');
+      dom.width = dom.height = 256;
+      const result = {
+        userAgent: navigator.userAgent,
+        brave: typeof navigator.brave !== 'undefined',
+        offscreen: read(off),
+        dom: read(dom.getContext('2d', { willReadFrequently: true })),
+      };
+      // The canvas-free decoder: must be bit-exact in every browser.
+      const { decodePng } = await import('/src/png.ts');
+      result.pngDecoder = Array.from((await decodePng(await blob.arrayBuffer())).data);
+      window.__result = result;
+      document.getElementById('out').textContent = 'done';
+    </script>
+  </body>
+</html>

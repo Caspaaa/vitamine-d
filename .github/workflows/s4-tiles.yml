@@ -1,0 +1,56 @@
+name: S4 tiles (one-off height-tile build)
+
+# Spike S4: can a free GitHub-hosted runner download the UrbIS rasters for all of Brussels and build the z17 height tiles?
+# Measures wall time, peak memory and disk, and writes them to the run summary.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['spikes/s4-pipeline/**', '.github/workflows/s4-tiles.yml']
+
+jobs:
+  tiles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: spikes/s4-pipeline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: spikes/s4-pipeline/requirements.txt
+      - run: pip install -r requirements.txt
+      - name: Runner
+        run: |
+          echo "cpus: $(nproc)"; free -g | sed -n 2p; df -h / | tail -1
+      - name: Fetch UrbIS DSM + DTM (216 + 216 tiles)
+        run: |
+          start=$(date +%s)
+          /usr/bin/time -v python fetch_raw.py --kind dsm dtm --codes all --threads 6 2> time-fetch.txt | tail -2
+          echo "FETCH_S=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
+          echo "FETCH_RSS_KB=$(grep 'Maximum resident' time-fetch.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
+          du -sh data/raw; df -h / | tail -1
+      - name: Build tiles
+        run: |
+          start=$(date +%s)
+          /usr/bin/time -v python build_tiles.py --kind dsm dtm 2> time-build.txt | tee build.log
+          echo "BUILD_S=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
+          echo "BUILD_RSS_KB=$(grep 'Maximum resident' time-build.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
+          echo "FILES=$(find out -name '*.png' | wc -l)" >> "$GITHUB_ENV"
+          echo "OUT_MB=$(du -sm out | cut -f1)" >> "$GITHUB_ENV"
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### S4: height tiles for all Brussels on a GitHub runner"
+            echo "| step | wall time | peak memory |"
+            echo "|---|---|---|"
+            echo "| download 432 UrbIS tiles | ${FETCH_S:-?} s | $(( ${FETCH_RSS_KB:-0} / 1024 )) MB |"
+            echo "| build tiles | ${BUILD_S:-?} s | $(( ${BUILD_RSS_KB:-0} / 1024 )) MB |"
+            echo ""
+            echo "tiles written: ${FILES:-?} PNG, ${OUT_MB:-?} MB; raw cache: $(du -sm data/raw 2>/dev/null | cut -f1) MB; cpus $(nproc); free disk now: $(df -h / | tail -1 | awk '{print $4}')"
+            echo ""
+            echo '```'; cat build.log 2>/dev/null; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

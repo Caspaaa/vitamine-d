@@ -1,0 +1,6 @@
+.venv/
+data/
+web/node_modules/
+web/public/tiles/
+web/dist/
+web/public/s2/

@@ -1,0 +1,63 @@
+name: S4 snapshot (seed terraces + horizon profiles)
+
+# Spike S4: the frequent job. Import places, seed terraces, compute horizon profiles for every terrace from the published
+# height tiles, export the snapshot chunks. Measures wall time and memory on a free runner.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['spikes/s4-pipeline/**', 'spikes/s2-horizon/**', '.github/workflows/s4-snapshot.yml']
+
+env:
+  TILES: https://vitamine-d-s4-test.pages.dev/urbis-2021
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: spikes/s4-pipeline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: spikes/s4-pipeline/requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: spikes/s2-horizon/package-lock.json
+      - run: pip install -r requirements.txt
+      - run: npm ci
+        working-directory: spikes/s2-horizon
+      - name: Import venues (Overpass) and seed terraces (UrbIS WFS + method A)
+        run: |
+          start=$(date +%s)
+          /usr/bin/time -v python seed_places.py --fetch-venues 2> time-seed.txt | tee seed.log
+          echo "SEED_S=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
+          echo "SEED_RSS_KB=$(grep 'Maximum resident' time-seed.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
+      - name: Horizon profiles + snapshot
+        run: |
+          start=$(date +%s)
+          /usr/bin/time -v ../s2-horizon/node_modules/.bin/tsx horizons.mts 2> time-hz.txt | tee horizons.log
+          echo "HZ_S=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
+          echo "HZ_RSS_KB=$(grep 'Maximum resident' time-hz.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: snapshot
+          path: spikes/s4-pipeline/snapshot
+          retention-days: 3
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### S4: seed + horizons on a GitHub runner (cpus $(nproc))"
+            echo "| step | wall time | peak memory |"
+            echo "|---|---|---|"
+            echo "| venues + footprints + seeding | ${SEED_S:-?} s | $(( ${SEED_RSS_KB:-0} / 1024 )) MB |"
+            echo "| horizons from tiles on Cloudflare Pages | ${HZ_S:-?} s | $(( ${HZ_RSS_KB:-0} / 1024 )) MB |"
+            echo ""
+            echo '```'; cat seed.log horizons.log 2>/dev/null | grep -v 'cells,'; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

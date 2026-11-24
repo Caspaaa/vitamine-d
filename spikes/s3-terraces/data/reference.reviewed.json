@@ -1,0 +1,2169 @@
+{
+ "n356622607": {
+  "status": "unsure",
+  "conf": "low",
+  "note": "Orange pallet platforms 8 m NW of the venue point; may belong to another venue",
+  "polys": [
+   [
+    [
+     -11.8,
+     4.8
+    ],
+    [
+     -9.1,
+     3.3
+    ],
+    [
+     -7.45,
+     7.85
+    ],
+    [
+     -6.15,
+     10.75
+    ],
+    [
+     -6.5,
+     12.8
+    ],
+    [
+     -10.8,
+     13.95
+    ],
+    [
+     -12.75,
+     10.25
+    ],
+    [
+     -14.85,
+     6.3
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4418285535": {
+  "status": "terrace",
+  "conf": "high",
+  "note": "Umbrella tables along the east facade, pedestrian street, in building shadow",
+  "polys": [
+   [
+    [
+     2.8,
+     -1.5
+    ],
+    [
+     7,
+     0.05
+    ],
+    [
+     5.85,
+     3.25
+    ],
+    [
+     4.15,
+     6.5
+    ],
+    [
+     2.95,
+     8.7
+    ],
+    [
+     -1.4,
+     7.35
+    ],
+    [
+     0.3,
+     4.35
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n12508212336": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Tables around a kiosk across the tram tracks (probably another venue); none visible at the venue itself",
+  "polys": [
+   [
+    [
+     -8.65,
+     -0.55
+    ],
+    [
+     -1.7,
+     -8.2
+    ],
+    [
+     -7.35,
+     -11.55
+    ],
+    [
+     -9.75,
+     -11.25
+    ],
+    [
+     -12.35,
+     -5.3
+    ],
+    [
+     -11.95,
+     -3.1
+    ],
+    [
+     -8.6,
+     -0.5
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n7984220345": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "3-4 small round tables on the pavement east of the flat-iron building",
+  "polys": [
+   [
+    [
+     2.1,
+     -1.9
+    ],
+    [
+     6.7,
+     -2.65
+    ],
+    [
+     8.8,
+     4.3
+    ],
+    [
+     4.2,
+     4.55
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4413284010": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Pedestrian street entirely in shadow in the photo; no tables distinguishable",
+  "polys": [
+   [
+    [
+     -5,
+     6.2
+    ],
+    [
+     -4.25,
+     7.8
+    ],
+    [
+     13.6,
+     0.2
+    ],
+    [
+     12.9,
+     -1.2
+    ],
+    [
+     -4.95,
+     6.1
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n9773150833": {
+  "status": "terrace",
+  "conf": "high",
+  "note": "Tables and stacked chairs along the building facade on the quay street",
+  "polys": [
+   [
+    [
+     0.5,
+     5.8
+    ],
+    [
+     3.4,
+     5.8
+    ],
+    [
+     3,
+     10.5
+    ],
+    [
+     1.8,
+     13
+    ],
+    [
+     -1,
+     16.5
+    ],
+    [
+     -2.5,
+     19
+    ],
+    [
+     -4,
+     18.6
+    ],
+    [
+     -3,
+     14.5
+    ],
+    [
+     -1,
+     11.5
+    ],
+    [
+     -0.3,
+     8
+    ]
+   ]
+  ],
+  "reviewed": true
+ },
+ "n5389787926": {
+  "status": "noimagery",
+  "conf": "none",
+  "note": "z21 tile is an upscaled 0.6 m image",
+  "polys": [],
+  "reviewed": true
+ },
+ "n1727512121": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Beer garden with wooden benches on the square west of the building (8-20 m from the OSM point)",
+  "polys": [
+   [
+    [
+     -18.95,
+     0
+    ],
+    [
+     -15.1,
+     4.05
+    ],
+    [
+     -11.2,
+     2.2
+    ],
+    [
+     -10.5,
+     -0.5
+    ],
+    [
+     -6,
+     -1.5
+    ],
+    [
+     -2.05,
+     -5.95
+    ],
+    [
+     -6.2,
+     -10.5
+    ],
+    [
+     -10,
+     -12.5
+    ],
+    [
+     -13.95,
+     -10.55
+    ],
+    [
+     -16.5,
+     -7
+    ],
+    [
+     -18.5,
+     -5.5
+    ],
+    [
+     -20.8,
+     -3.5
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n843729099": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Red awnings: strip along the west facade and tables south of the building under awning and dark umbrellas",
+  "polys": [
+   [
+    [
+     -1,
+     -2.8
+    ],
+    [
+     8.2,
+     -2.4
+    ],
+    [
+     8.5,
+     -5.2
+    ],
+    [
+     5,
+     -9.8
+    ],
+    [
+     -2.5,
+     -9.6
+    ],
+    [
+     -3,
+     -5
+    ]
+   ],
+   [
+    [
+     -9.8,
+     6.2
+    ],
+    [
+     -6.5,
+     7
+    ],
+    [
+     -3.8,
+     0.8
+    ],
+    [
+     -3.8,
+     -1.8
+    ],
+    [
+     -6.5,
+     -1
+    ],
+    [
+     -9.5,
+     2
+    ]
+   ]
+  ],
+  "reviewed": true
+ },
+ "n5628359721": {
+  "status": "terrace",
+  "conf": "none",
+  "note": "Venue under dense tree canopy; nothing visible from above",
+  "polys": [],
+  "reviewed": true,
+  "edited": true
+ },
+ "n11157744609": {
+  "status": "unsure",
+  "conf": "low",
+  "note": "Tables along the NE pavement 7-17 m away, under shop awnings; may belong to another restaurant",
+  "polys": [
+   [
+    [
+     6,
+     12
+    ],
+    [
+     8.5,
+     13.2
+    ],
+    [
+     17.5,
+     4.2
+    ],
+    [
+     16.8,
+     2.2
+    ],
+    [
+     14,
+     3.5
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     8.3,
+     8.5
+    ]
+   ]
+  ],
+  "reviewed": true
+ },
+ "n3382932808": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "No tables visible (boulevard, flat roofs)",
+  "polys": [
+   [
+    [
+     -2.45,
+     -6.85
+    ],
+    [
+     7.8,
+     -0.45
+    ],
+    [
+     9.05,
+     -2.3
+    ],
+    [
+     -1.4,
+     -8.65
+    ],
+    [
+     -2.4,
+     -6.9
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4413952472": {
+  "status": "unsure",
+  "conf": "low",
+  "note": "Only a small red cover on the pavement at the venue frontage",
+  "polys": [
+   [
+    [
+     -4.4,
+     -0.8
+    ],
+    [
+     -2.95,
+     0.15
+    ],
+    [
+     -0.35,
+     -3.5
+    ],
+    [
+     -1.85,
+     -4.55
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n7914336893": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Corner building, big shadow; only people on the pavement far away",
+  "polys": [
+   [
+    [
+     -6.6,
+     -6.8
+    ],
+    [
+     -1.85,
+     -8.45
+    ],
+    [
+     -2.65,
+     -10.15
+    ],
+    [
+     -7.55,
+     -8.6
+    ],
+    [
+     -6.6,
+     -6.75
+    ]
+   ],
+   [
+    [
+     -0.55,
+     -8.65
+    ],
+    [
+     4.6,
+     -2.5
+    ],
+    [
+     8.8,
+     -6.3
+    ],
+    [
+     3.25,
+     -12.5
+    ],
+    [
+     -0.5,
+     -8.7
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4646072991": {
+  "status": "terrace",
+  "conf": "high",
+  "note": "Four wooden table groups with planters on the corner pavement east of the building",
+  "polys": [
+   [
+    [
+     4.65,
+     -6.4
+    ],
+    [
+     10.5,
+     -4.7
+    ],
+    [
+     10.95,
+     -0.75
+    ],
+    [
+     11.8,
+     2
+    ],
+    [
+     7.5,
+     4.2
+    ],
+    [
+     5.2,
+     4.2
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n5421246725": {
+  "status": "none",
+  "conf": "medium",
+  "note": "Green roof and bare quayside pavement, no furniture on 20-21 Sept 2024",
+  "polys": [],
+  "reviewed": true
+ },
+ "n5691531519": {
+  "status": "none",
+  "conf": "low",
+  "note": "Facade in shadow, no tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n2452583796": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Only a queue of people on the east pavement",
+  "polys": [
+   [
+    [
+     2.5,
+     7.2
+    ],
+    [
+     6.75,
+     8.2
+    ],
+    [
+     12.85,
+     -10.95
+    ],
+    [
+     8.5,
+     -12
+    ],
+    [
+     2.4,
+     7.05
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n5567348794": {
+  "status": "unsure",
+  "conf": "low",
+  "note": "Chairs/tables behind a barrier in the shaded street; very faint",
+  "polys": [
+   [
+    [
+     -8.95,
+     -2.05
+    ],
+    [
+     3.2,
+     5.75
+    ],
+    [
+     0.8,
+     8.1
+    ],
+    [
+     -10.35,
+     1.2
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n5650399701": {
+  "status": "unsure",
+  "conf": "low",
+  "note": "Two white round tables on the road corner south of the building",
+  "polys": [
+   [
+    [
+     -2.45,
+     -4.95
+    ],
+    [
+     7.8,
+     -3.9
+    ],
+    [
+     6.2,
+     -9.65
+    ],
+    [
+     0.3,
+     -8.35
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n10852508419": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Tables with dark chairs on the pavement east of the building, awning at the north end",
+  "polys": [
+   [
+    [
+     2.8,
+     0.3
+    ],
+    [
+     7.9,
+     5.75
+    ],
+    [
+     12.5,
+     4.05
+    ],
+    [
+     6.55,
+     -6.55
+    ],
+    [
+     4,
+     -8
+    ],
+    [
+     -0.05,
+     -6.15
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n13246126074": {
+  "status": "none",
+  "conf": "medium",
+  "note": "Station platform roof, no furniture",
+  "polys": [],
+  "reviewed": true
+ },
+ "n6137720604": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Green roof, nothing at street level",
+  "polys": [
+   [
+    [
+     1.05,
+     9.3
+    ],
+    [
+     -3.3,
+     13.05
+    ],
+    [
+     -15.05,
+     -1.3
+    ],
+    [
+     -10.35,
+     -5.85
+    ],
+    [
+     1.15,
+     9.2
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n12754332818": {
+  "status": "terrace",
+  "conf": "high",
+  "note": "Long strip of seated people along the building facade (Place du Jeu de Balle)",
+  "polys": [
+   [
+    [
+     9.15,
+     6.4
+    ],
+    [
+     12.1,
+     4.45
+    ],
+    [
+     6.6,
+     -3.2
+    ],
+    [
+     3.3,
+     -8
+    ],
+    [
+     -0.2,
+     -12.5
+    ],
+    [
+     -6.05,
+     -19.65
+    ],
+    [
+     -8.9,
+     -16.8
+    ],
+    [
+     -5.65,
+     -13.65
+    ],
+    [
+     -2.2,
+     -8.85
+    ],
+    [
+     0.75,
+     -5.2
+    ],
+    [
+     4.4,
+     -0.45
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n2451989333": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Faint chairs in the shaded street NW; nothing clear at the venue",
+  "polys": [
+   [
+    [
+     1.15,
+     4.35
+    ],
+    [
+     3.15,
+     6.4
+    ],
+    [
+     8.7,
+     1.4
+    ],
+    [
+     7.15,
+     -0.6
+    ],
+    [
+     1.25,
+     4.25
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n7817921649": {
+  "status": "none",
+  "conf": "medium",
+  "note": "Canal-side building, no tables on the quay",
+  "polys": [],
+  "reviewed": true
+ },
+ "n12329314869": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Park pavilion/fountain basin; no tables visible",
+  "polys": [
+   [
+    [
+     -7,
+     6.8
+    ],
+    [
+     -5.95,
+     8.6
+    ],
+    [
+     4.4,
+     12.85
+    ],
+    [
+     9.5,
+     10.2
+    ],
+    [
+     10.35,
+     6.25
+    ],
+    [
+     8.45,
+     1
+    ],
+    [
+     -6.9,
+     6.65
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n2640981051": {
+  "status": "terrace",
+  "conf": "high",
+  "note": "Strip of tables and chairs along the south-west facade",
+  "polys": [
+   [
+    [
+     -5,
+     -2.6
+    ],
+    [
+     8.2,
+     -8.4
+    ],
+    [
+     4.75,
+     -14.2
+    ],
+    [
+     -7.8,
+     -9.6
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n10271182593": {
+  "status": "none",
+  "conf": "low",
+  "note": "Corner house; only a courtyard",
+  "polys": [],
+  "reviewed": true
+ },
+ "n10870462702": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Large building, no tables visible",
+  "polys": [
+   [
+    [
+     -5.45,
+     11.8
+    ],
+    [
+     -8.35,
+     11.9
+    ],
+    [
+     -14.65,
+     -11.45
+    ],
+    [
+     -11.75,
+     -12.2
+    ],
+    [
+     -5.4,
+     11.9
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4811189657": {
+  "status": "none",
+  "conf": "medium",
+  "note": "Negative (outdoor_seating=no): no tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n13075447899": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Negative (outdoor_seating=no): only a few people standing on the pavement",
+  "polys": [
+   [
+    [
+     -3.75,
+     -0.8
+    ],
+    [
+     -5.55,
+     -3.25
+    ],
+    [
+     -1.4,
+     -6.8
+    ],
+    [
+     0.4,
+     -4.35
+    ],
+    [
+     -3.75,
+     -0.85
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n6289589458": {
+  "status": "none",
+  "conf": "medium",
+  "note": "Negative (outdoor_seating=no): glass gallery, no furniture",
+  "polys": [],
+  "reviewed": true
+ },
+ "n10252756454": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "OSM says outdoor_seating=no but a large elevated terrace with white chairs and orange umbrellas sits beside it (Bozar terrace); tag contradicts imagery",
+  "polys": [
+   [
+    [
+     -18.1,
+     -17.25
+    ],
+    [
+     9.3,
+     18.6
+    ],
+    [
+     15,
+     15.45
+    ],
+    [
+     4.7,
+     2.75
+    ],
+    [
+     6.2,
+     0.75
+    ],
+    [
+     0.6,
+     -6.6
+    ],
+    [
+     -2.45,
+     -4.4
+    ],
+    [
+     -0.45,
+     -6.2
+    ],
+    [
+     -7.05,
+     -13.85
+    ],
+    [
+     -4.45,
+     -15.8
+    ],
+    [
+     -10.15,
+     -23.15
+    ],
+    [
+     -18.15,
+     -17.45
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n9981424310": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "One umbrella and two tables on the corner pavement south of the building",
+  "polys": [
+   [
+    [
+     -2.7,
+     -4.4
+    ],
+    [
+     4.6,
+     -2.7
+    ],
+    [
+     5.4,
+     -6.2
+    ],
+    [
+     3,
+     -7.2
+    ],
+    [
+     0.8,
+     -8.2
+    ],
+    [
+     -1.8,
+     -8
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n11148942651": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Back garden behind the building with scattered round umbrellas",
+  "polys": [
+   [
+    [
+     -13.5,
+     -8
+    ],
+    [
+     -9.1,
+     -1.9
+    ],
+    [
+     -4.5,
+     -4
+    ],
+    [
+     -0.2,
+     -7.5
+    ],
+    [
+     10.35,
+     -17.25
+    ],
+    [
+     0.2,
+     -20
+    ],
+    [
+     -6,
+     -14.8
+    ],
+    [
+     -10,
+     -12.8
+    ],
+    [
+     -13.5,
+     -10.2
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n11378574332": {
+  "status": "occluded",
+  "conf": "none",
+  "note": "Under dense tree canopy",
+  "polys": [],
+  "reviewed": true
+ },
+ "n1762908679": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n6598940702": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n9883890893": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Wooden deck with pallets/containers south-west of the venue; unclear if it is a terrace",
+  "polys": [
+   [
+    [
+     -16.15,
+     27.1
+    ],
+    [
+     2.85,
+     22.5
+    ],
+    [
+     0.25,
+     11.1
+    ],
+    [
+     4.9,
+     9.85
+    ],
+    [
+     4.2,
+     6.65
+    ],
+    [
+     2.95,
+     6.65
+    ],
+    [
+     -8.15,
+     -2.2
+    ],
+    [
+     -7.35,
+     -4.35
+    ],
+    [
+     -8.85,
+     -5.7
+    ],
+    [
+     -6.4,
+     -8.95
+    ],
+    [
+     -17.45,
+     -17.75
+    ],
+    [
+     -24.9,
+     -15.75
+    ],
+    [
+     -24.9,
+     -12.45
+    ],
+    [
+     -19.15,
+     -12.5
+    ],
+    [
+     -13.1,
+     13.65
+    ],
+    [
+     -18.8,
+     15.55
+    ],
+    [
+     -15.95,
+     27
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n11585729488": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Dark tables along the south facade, following the tram curve",
+  "polys": [
+   [
+    [
+     -7.7,
+     0.4
+    ],
+    [
+     -1,
+     -4.6
+    ],
+    [
+     2.55,
+     -5.4
+    ],
+    [
+     3,
+     -7
+    ],
+    [
+     1.5,
+     -10.5
+    ],
+    [
+     -1,
+     -9.5
+    ],
+    [
+     -3,
+     -6.5
+    ],
+    [
+     -6.8,
+     -4.5
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4811111885": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Small tables under the facade on the shaded square, partly in tree shadow",
+  "polys": [
+   [
+    [
+     0.75,
+     -2.3
+    ],
+    [
+     19.95,
+     -7.4
+    ],
+    [
+     18.4,
+     -12.5
+    ],
+    [
+     -0.5,
+     -5.8
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n7733405194": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n3705787249": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n4323046261": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Roof garden with plants and a blue tarp; rooftop terrace cannot be handled by ground shadows",
+  "polys": [],
+  "reviewed": true,
+  "edited": true
+ },
+ "n13007376925": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n11102323210": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Paved roof terrace 8 m east, probably private/rooftop",
+  "polys": [
+   [
+    [
+     2.85,
+     5.75
+    ],
+    [
+     -0.05,
+     10.05
+    ],
+    [
+     -9.4,
+     2.95
+    ],
+    [
+     -5.9,
+     -0.7
+    ],
+    [
+     2.95,
+     5.85
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n3014396256": {
+  "status": "terrace",
+  "conf": "high",
+  "note": "Round tables with umbrellas in an arc in front of the orange awning, plus tables to the south",
+  "polys": [
+   [
+    [
+     3.2,
+     6.45
+    ],
+    [
+     6.15,
+     7.05
+    ],
+    [
+     7.4,
+     1.5
+    ],
+    [
+     6.6,
+     -1
+    ],
+    [
+     5.6,
+     -3
+    ],
+    [
+     4.2,
+     -5
+    ],
+    [
+     3,
+     -6.8
+    ],
+    [
+     0.5,
+     -7.8
+    ],
+    [
+     -2.5,
+     -8.3
+    ],
+    [
+     -5.5,
+     -8.3
+    ],
+    [
+     -5.5,
+     -4.4
+    ],
+    [
+     -1,
+     -4
+    ],
+    [
+     2,
+     -2.5
+    ],
+    [
+     4.2,
+     -0.5
+    ],
+    [
+     4.1,
+     2.5
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n2329109281": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Tables along the facade of the pedestrian street, shade and translucent table tops make it hard to read",
+  "polys": [
+   [
+    [
+     -5.45,
+     -1.15
+    ],
+    [
+     4.15,
+     -7.85
+    ],
+    [
+     8.9,
+     -11.1
+    ],
+    [
+     4.45,
+     -16.8
+    ],
+    [
+     -0.55,
+     -15.1
+    ],
+    [
+     -6.55,
+     -11.8
+    ],
+    [
+     -12.25,
+     -6.7
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n6737276686": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Crowd of seated/standing people with tables at the pavement corner east of the building",
+  "polys": [
+   [
+    [
+     6,
+     1
+    ],
+    [
+     9.5,
+     1.2
+    ],
+    [
+     12.65,
+     -0.8
+    ],
+    [
+     10.8,
+     -4.8
+    ],
+    [
+     8,
+     -5.4
+    ],
+    [
+     4.45,
+     -3.65
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n12181786179": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Tables of Place du Luxembourg at the top-left; venue itself is on a glass roof",
+  "polys": [
+   [
+    [
+     -18.05,
+     14.2
+    ],
+    [
+     -28.55,
+     9.8
+    ],
+    [
+     -26.45,
+     2.5
+    ],
+    [
+     -6.95,
+     -1.05
+    ],
+    [
+     -18,
+     14.25
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n12559097695": {
+  "status": "terrace",
+  "conf": "high",
+  "note": "Two red awnings with tables and people along the building",
+  "polys": [
+   [
+    [
+     -6.85,
+     2.65
+    ],
+    [
+     -3,
+     2.6
+    ],
+    [
+     -2.6,
+     -0.5
+    ],
+    [
+     -1.8,
+     -2.2
+    ],
+    [
+     1.1,
+     -5.4
+    ],
+    [
+     -3.5,
+     -5.5
+    ],
+    [
+     -5.3,
+     -4.15
+    ],
+    [
+     -7.8,
+     -2
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n13668406264": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n4659999496": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Only chalk-like markings on the shaded pavement",
+  "polys": [
+   [
+    [
+     -9.1,
+     11.05
+    ],
+    [
+     -13.9,
+     3.2
+    ],
+    [
+     -6.85,
+     0.9
+    ],
+    [
+     -2.75,
+     7.15
+    ],
+    [
+     -9.2,
+     11.05
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n9937556851": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n4418285625": {
+  "status": "unsure",
+  "conf": "low",
+  "note": "A few dark benches along the passage",
+  "polys": [],
+  "reviewed": true
+ },
+ "n4416447597": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Tables on a dark deck next to the building and on an upper balcony to the south-west",
+  "polys": [
+   [
+    [
+     -5.5,
+     1.5
+    ],
+    [
+     -5,
+     -1
+    ],
+    [
+     -2,
+     -1
+    ],
+    [
+     2.55,
+     6.45
+    ],
+    [
+     1,
+     8.5
+    ],
+    [
+     -1.5,
+     8.5
+    ],
+    [
+     -4.5,
+     5
+    ]
+   ],
+   [
+    [
+     -8.5,
+     -3.2
+    ],
+    [
+     -6.55,
+     0.95
+    ],
+    [
+     0.5,
+     -9.5
+    ],
+    [
+     0.5,
+     -11.9
+    ],
+    [
+     -1.5,
+     -12
+    ],
+    [
+     -8.5,
+     -5.5
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4887211960": {
+  "status": "none",
+  "conf": "medium",
+  "note": "Glass roof of the Galeries Royales",
+  "polys": [],
+  "reviewed": true
+ },
+ "n4553116328": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Umbrella tables along the east pavement of the pedestrian street",
+  "polys": [
+   [
+    [
+     4,
+     6.8
+    ],
+    [
+     6.25,
+     6.55
+    ],
+    [
+     7.8,
+     3.05
+    ],
+    [
+     8.6,
+     -0.5
+    ],
+    [
+     5.2,
+     -0.5
+    ],
+    [
+     4.2,
+     2.5
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4411996394": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Umbrella tables on the shaded square south of the covered hall",
+  "polys": [
+   [
+    [
+     7.2,
+     -8
+    ],
+    [
+     10.8,
+     -8
+    ],
+    [
+     11.2,
+     -10
+    ],
+    [
+     12.9,
+     -12.1
+    ],
+    [
+     8,
+     -14.2
+    ],
+    [
+     5.55,
+     -15.3
+    ],
+    [
+     5.3,
+     -11.2
+    ],
+    [
+     7.2,
+     -10.8
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n8450305004": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n474985851": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [
+   [
+    [
+     5.45,
+     0.5
+    ],
+    [
+     2.4,
+     -4.2
+    ],
+    [
+     4.95,
+     -6.05
+    ],
+    [
+     8.3,
+     -0.4
+    ],
+    [
+     5.55,
+     0.6
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n10842099584": {
+  "status": "unsure",
+  "conf": "low",
+  "note": "Crowd along the facade; could be passers-by",
+  "polys": [
+   [
+    [
+     -6.8,
+     4.5
+    ],
+    [
+     -5.85,
+     4.7
+    ],
+    [
+     -4,
+     1
+    ],
+    [
+     -2.5,
+     -2.5
+    ],
+    [
+     2.05,
+     -5.85
+    ],
+    [
+     -2.8,
+     -5.4
+    ],
+    [
+     -5,
+     -2
+    ],
+    [
+     -7.55,
+     2.4
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n6750157885": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "Only string lights on the square",
+  "polys": [
+   [
+    [
+     -3.8,
+     3.9
+    ],
+    [
+     -2.8,
+     5.1
+    ],
+    [
+     4.8,
+     0.2
+    ],
+    [
+     -2.3,
+     -10.55
+    ],
+    [
+     -3.9,
+     -9.5
+    ],
+    [
+     2.55,
+     0.1
+    ],
+    [
+     -3.8,
+     3.85
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n2414370936": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n4413933721": {
+  "status": "terrace",
+  "conf": "high",
+  "note": "Grand-Place: large block of umbrella tables",
+  "polys": [
+   [
+    [
+     9.5,
+     7.8
+    ],
+    [
+     15.8,
+     11.1
+    ],
+    [
+     17,
+     3
+    ],
+    [
+     15.6,
+     0.8
+    ],
+    [
+     14.5,
+     -0.8
+    ],
+    [
+     12.4,
+     -3
+    ],
+    [
+     10.4,
+     -5.2
+    ],
+    [
+     7.8,
+     -7
+    ],
+    [
+     6,
+     -9.55
+    ],
+    [
+     4.1,
+     -11.8
+    ],
+    [
+     1.5,
+     -14.2
+    ],
+    [
+     -1.35,
+     -13.3
+    ],
+    [
+     -5.65,
+     -9.25
+    ],
+    [
+     -1.5,
+     -2.5
+    ],
+    [
+     1.5,
+     -0.5
+    ],
+    [
+     4.4,
+     1.8
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n10795142257": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Small cluster of umbrella tables on the cobbled street",
+  "polys": [
+   [
+    [
+     -11.2,
+     -0.3
+    ],
+    [
+     -9,
+     0.1
+    ],
+    [
+     -7.8,
+     -3
+    ],
+    [
+     -8,
+     -6
+    ],
+    [
+     -9,
+     -7.2
+    ],
+    [
+     -10.4,
+     -5.5
+    ],
+    [
+     -10.8,
+     -2.5
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n14300070341": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n6217594385": {
+  "status": "terrace",
+  "conf": "low",
+  "note": "A faint red parasol in the shade 8 m east",
+  "polys": [
+   [
+    [
+     6.8,
+     7
+    ],
+    [
+     4.75,
+     3.75
+    ],
+    [
+     6.5,
+     1.35
+    ],
+    [
+     3.1,
+     -5.75
+    ],
+    [
+     6.6,
+     -4.6
+    ],
+    [
+     10.1,
+     1.5
+    ],
+    [
+     9.95,
+     6.85
+    ],
+    [
+     6.9,
+     6.95
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n4811565062": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "Large terrace along the glass gallery, half in the sun and half in the shade",
+  "polys": [
+   [
+    [
+     17.4,
+     12.5
+    ],
+    [
+     23.2,
+     8.05
+    ],
+    [
+     19.3,
+     3.5
+    ],
+    [
+     16.6,
+     0.5
+    ],
+    [
+     14.75,
+     -1.6
+    ],
+    [
+     12.4,
+     -5.3
+    ],
+    [
+     10.45,
+     -7.2
+    ],
+    [
+     9.05,
+     -8.95
+    ],
+    [
+     8.05,
+     -10.9
+    ],
+    [
+     6.1,
+     -13
+    ],
+    [
+     -5.95,
+     -28.35
+    ],
+    [
+     -12.2,
+     -23.75
+    ],
+    [
+     -1,
+     -9.6
+    ],
+    [
+     3.9,
+     -3.6
+    ],
+    [
+     8.4,
+     2
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n8151683605": {
+  "status": "none",
+  "conf": "medium",
+  "note": "Green roof",
+  "polys": [],
+  "reviewed": true
+ },
+ "n12224005969": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ },
+ "n3506580891": {
+  "status": "terrace",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [
+   [
+    [
+     -12.25,
+     -12.75
+    ],
+    [
+     -0.35,
+     -11.75
+    ],
+    [
+     0.75,
+     -17.35
+    ],
+    [
+     -10.7,
+     -18.5
+    ],
+    [
+     -12.15,
+     -12.8
+    ]
+   ]
+  ],
+  "reviewed": true,
+  "edited": true
+ },
+ "n1151269436": {
+  "status": "none",
+  "conf": "medium",
+  "note": "No tables visible",
+  "polys": [],
+  "reviewed": true
+ }
+}
