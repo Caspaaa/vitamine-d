@@ -8,7 +8,8 @@ on:
     paths: ['spikes/s4-pipeline/**', 'spikes/s2-horizon/**', '.github/workflows/s4-snapshot.yml']
 
 env:
-  TILES: https://vitamine-d-s4-test.pages.dev/urbis-2021
+  # Where the published height tiles live. Set the repository variable TILES_URL when the real data project exists.
+  TILES: ${{ vars.TILES_URL || 'https://vitamine-d-s4-test.pages.dev/urbis-2021' }}
 
 jobs:
   snapshot:
@@ -40,7 +41,7 @@ jobs:
                    https://geoservices-vector.irisnet.be/geoserver/web/ https://urbisdownload.datastore.brussels/ ${TILES}/dsm/index.json; do
             for v in 4 6; do
               printf '%s (IPv%s): ' "$u" "$v"
-              curl -"$v" -sS -m 20 -o /dev/null -w '%{http_code} in %{time_total}s\n' -A 'vitamine-d-pipeline/0.1' "$u" 2>&1 | tail -1
+              curl -"$v" -sS -m 20 -o /dev/null -w '%{http_code} in %{time_total}s\n' -A 'vitamine-d-pipeline/0.1' "$u" 2>&1 | tail -1 || true
             done
           done
       - name: Import venues (Overpass) and seed terraces (UrbIS WFS + method A)
