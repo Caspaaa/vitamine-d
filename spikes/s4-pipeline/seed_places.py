@@ -35,18 +35,33 @@ nwr["amenity"~"^(restaurant|cafe|bar|pub|biergarten)$"](area.a);
 out center tags;"""
 
 
+OVERPASS_ENDPOINTS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+]
+
+
 def fetch_venues():
-    for attempt in range(5):
-        try:
-            req = urllib.request.Request("https://overpass-api.de/api/interpreter",
-                                         data=urllib.parse.urlencode({"data": OVERPASS_Q}).encode(), headers=UA)
-            raw = urllib.request.urlopen(req, timeout=200).read()
-            (DATA / "venues-brussels-raw.json").write_bytes(raw)
-            return json.loads(raw)
-        except Exception as e:
-            print("overpass retry", attempt, e)
-            time.sleep(5 * (attempt + 1))
-    raise SystemExit("Overpass unavailable")
+    """Public Overpass instances are shared and sometimes unreachable (also from CI runners): try each in turn."""
+    body = urllib.parse.urlencode({"data": OVERPASS_Q}).encode()
+    errors = []
+    for round_ in range(3):
+        for url in OVERPASS_ENDPOINTS:
+            try:
+                raw = urllib.request.urlopen(urllib.request.Request(url, data=body, headers=UA), timeout=200).read()
+                data = json.loads(raw)
+                if not data.get("elements"):
+                    raise ValueError("empty answer")
+                (DATA / "venues-brussels-raw.json").write_bytes(raw)
+                print(f"venues from {url} ({len(data['elements'])} elements)")
+                return data
+            except Exception as e:
+                errors.append(f"{url}: {e}")
+                print("overpass:", errors[-1], flush=True)
+        time.sleep(10 * (round_ + 1))
+    raise SystemExit("no Overpass instance answered:\n" + "\n".join(errors[-len(OVERPASS_ENDPOINTS):]))
 
 
 def fetch_cell(cell):

@@ -5,7 +5,7 @@ name: S4 tiles (one-off height-tile build)
 on:
   workflow_dispatch:
   push:
-    paths: ['spikes/s4-pipeline/**', '.github/workflows/s4-tiles.yml']
+    paths: ['spikes/s4-pipeline/fetch_raw.py', 'spikes/s4-pipeline/build_tiles.py', 'spikes/s4-pipeline/requirements.txt']
 
 jobs:
   tiles:
@@ -13,6 +13,7 @@ jobs:
     timeout-minutes: 120
     defaults:
       run:
+        shell: bash   # bash -eo pipefail: a failing command in a pipeline fails the step
         working-directory: spikes/s4-pipeline
     steps:
       - uses: actions/checkout@v4
@@ -28,14 +29,14 @@ jobs:
       - name: Fetch UrbIS DSM + DTM (216 + 216 tiles)
         run: |
           start=$(date +%s)
-          /usr/bin/time -v python fetch_raw.py --kind dsm dtm --codes all --threads 6 2> time-fetch.txt | tail -2
+          /usr/bin/time -v -o time-fetch.txt python fetch_raw.py --kind dsm dtm --codes all --threads 6 | tail -2
           echo "FETCH_S=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
           echo "FETCH_RSS_KB=$(grep 'Maximum resident' time-fetch.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
           du -sh data/raw; df -h / | tail -1
       - name: Build tiles
         run: |
           start=$(date +%s)
-          /usr/bin/time -v python build_tiles.py --kind dsm dtm 2> time-build.txt | tee build.log
+          /usr/bin/time -v -o time-build.txt python build_tiles.py --kind dsm dtm | tee build.log
           echo "BUILD_S=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
           echo "BUILD_RSS_KB=$(grep 'Maximum resident' time-build.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
           echo "FILES=$(find out -name '*.png' | wc -l)" >> "$GITHUB_ENV"

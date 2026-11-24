@@ -16,6 +16,7 @@ jobs:
     timeout-minutes: 60
     defaults:
       run:
+        shell: bash   # bash -eo pipefail: a failing command in a pipeline fails the step
         working-directory: spikes/s4-pipeline
     steps:
       - uses: actions/checkout@v4
@@ -32,16 +33,26 @@ jobs:
       - run: pip install -r requirements.txt
       - run: npm ci
         working-directory: spikes/s2-horizon
+      - name: Network diagnostics (which of our data hosts can a runner reach?)
+        continue-on-error: true
+        run: |
+          for u in https://overpass-api.de/api/status https://overpass.kumi.systems/api/status https://overpass.private.coffee/api/status \
+                   https://geoservices-vector.irisnet.be/geoserver/web/ https://urbisdownload.datastore.brussels/ ${TILES}/dsm/index.json; do
+            for v in 4 6; do
+              printf '%s (IPv%s): ' "$u" "$v"
+              curl -"$v" -sS -m 20 -o /dev/null -w '%{http_code} in %{time_total}s\n' -A 'vitamine-d-pipeline/0.1' "$u" 2>&1 | tail -1
+            done
+          done
       - name: Import venues (Overpass) and seed terraces (UrbIS WFS + method A)
         run: |
           start=$(date +%s)
-          /usr/bin/time -v python seed_places.py --fetch-venues 2> time-seed.txt | tee seed.log
+          /usr/bin/time -v -o time-seed.txt python seed_places.py --fetch-venues | tee seed.log
           echo "SEED_S=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
           echo "SEED_RSS_KB=$(grep 'Maximum resident' time-seed.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
       - name: Horizon profiles + snapshot
         run: |
           start=$(date +%s)
-          /usr/bin/time -v ../s2-horizon/node_modules/.bin/tsx horizons.mts 2> time-hz.txt | tee horizons.log
+          /usr/bin/time -v -o time-hz.txt ../s2-horizon/node_modules/.bin/tsx horizons.mts | tee horizons.log
           echo "HZ_S=$(( $(date +%s) - start ))" >> "$GITHUB_ENV"
           echo "HZ_RSS_KB=$(grep 'Maximum resident' time-hz.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
       - uses: actions/upload-artifact@v4
