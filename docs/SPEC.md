@@ -210,12 +210,15 @@ Later regions (verified existence only): Flanders DHMV II 1 m DSM + Geopunt orth
 
 ### 8.1 Repository layout
 ```
-apps/web/            Next.js PWA (UI, map, editor, i18n)
-packages/sun/        pure TS: sun position wrapper, horizon sampling, window finder,
-                     ranking, config — runs in browser worker and Node (heavily tested)
+apps/web/            Next.js 16 static-export PWA (UI, map, editor, i18n)               [M1 ✅]
+packages/sun/        pure TS: sun position wrapper, Brussels time handling; later horizon
+                     sampling, window finder, ranking, config (browser worker + Node)   [M1 ✅ time/sun]
+packages/shadow/     WebGL 2 shadow engine: ring-buffer height window, MapLibre layer   [M1 ✅]
 packages/pipeline/   (Python) data import, classification, tiles, horizon profiles, exports
-packages/db/         SQL migrations, RLS policies, seed data
-docs/                this spec, ADRs
+                     (today: spikes/s4-pipeline, to be moved here in M2)
+packages/db/         SQL migrations, RLS policies, seed data                            [M3]
+spikes/              time-boxed experiments (own tooling, outside the pnpm workspace)
+docs/                this spec, spike and milestone results, ADRs
 ```
 
 ### 8.2 Data model (PostGIS, sketch)
@@ -266,7 +269,7 @@ No open terrace data exists ✓, and only ~23% of OSM venues are tagged `outdoor
 - **S4 Pipeline ops & free hosting — ✅ GO** ([result](spikes/S4-pipeline-hosting.md)): all of Brussels = 4,931 + 4,931 tiles (225 MB, 9,862 files) plus a 204-file, 2.8 MB place snapshot (863 B per terrace); tiles build in 2 min on an M3 / 7 min on a free GitHub runner (11 min incl. the 4.5 GB download); the frequent seed + horizons job takes ≈ 5 min on a free runner. Cloudflare Pages tested for real: 25 MiB and 20,000 files are hard limits, CORS/immutable caching/ETag/brotli work, 15 s incremental deploys; **no range requests**, **missing tile = 200 + HTML without a `404.html`**, header rules add up. Runners are IPv4-only and the public Overpass servers were unreliable in 2 of 3 runs (seed step 93 s to 468 s), so the venue extract is cached and refreshed by a separate weekly job. **Not tested:** CI deploy to Pages (needs an API token), phones on 4G, a Supabase keep-alive.
 - **S5 Photos:** Panoramax picking by azimuth; attribution UI.
 
-**M1 — Shadows on Brussels.** Basemap, 3D buildings, shadow layer, scrubber/date picker, geolocation, address search, PWA shell, i18n scaffolding (5 locales). *Done when* a user can scrub shadows on their phone anywhere in Brussels.
+**M1 — Shadows on Brussels — ✅ built, phone check pending** ([result](M1-shadows-on-brussels.md)). Basemap, 3D buildings, shadow layer, scrubber/date picker, geolocation, address search, PWA shell, i18n (5 locales). *Done when* a user can scrub shadows on their phone anywhere in Brussels. Shadows stream through a 16 × 16-tile ring buffer on the GPU (zoom ≥ 15, about ±800 m around the centre); verified by a GPU harness (wall shadow 23 px vs 22.97 px analytic across the ring wrap, no ghost shadows, negative control fails as it should), 58 unit tests, 16 app tests on Chromium (Pixel profile) and WebKit (iPhone profile), and an offline reload of the production build. **Untested:** a real Pixel 8 and iPhone (needs an HTTPS preview), geolocation on a phone, pitched views at low zoom.
 
 **M2 — "Sun now".** Place import, terraces seeded with method A (12 × 6 m on the free side of the nearest facade), horizon profiles, `packages/sun` ranking, cards with sun windows (approximate wording for `seeded`), opening hours, walk/bike, place detail with photo.
 

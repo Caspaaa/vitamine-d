@@ -1,0 +1,4 @@
+# The spikes keep their own npm lockfiles and are not part of the workspace.
+packages:
+  - apps/*
+  - packages/*

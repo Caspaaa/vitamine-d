@@ -1,0 +1,16 @@
+{
+  "name": "vitamine-d",
+  "private": true,
+  "packageManager": "pnpm@12.23.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "pnpm --filter @vitamine/web dev",
+    "build": "pnpm --filter @vitamine/web build",
+    "test": "pnpm -r --if-present test",
+    "typecheck": "pnpm -r --if-present typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  }
+}

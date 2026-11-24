@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "Vitamine D",
+    "title": "Vitamine D: sun and shade in Brussels",
+    "description": "See where the sun shines in Brussels right now, and in the next hours: live shadows of every building and tree, for any date and time."
+  },
+  "search": {
+    "label": "Search an address",
+    "placeholder": "Search an address in Brussels",
+    "searching": "Searching…",
+    "noResults": "No address found",
+    "error": "Search is not available right now. Try again in a moment.",
+    "clear": "Clear the search",
+    "results": "{count, plural, one {# result} other {# results}}"
+  },
+  "locate": {
+    "label": "Show my location",
+    "locating": "Finding your position…",
+    "denied": "Location is blocked for this site. Type an address instead.",
+    "unavailable": "Your position could not be found. Type an address instead.",
+    "outside": "You seem to be outside Brussels. Shadows are only available in the Brussels-Capital Region."
+  },
+  "time": {
+    "now": "Now",
+    "play": "Play the day",
+    "pause": "Pause",
+    "date": "Date",
+    "slider": "Time of day",
+    "sunrise": "Sunrise {time}",
+    "sunset": "Sunset {time}",
+    "sunAltitude": "Sun {altitude}° above the horizon",
+    "night": "The sun is below the horizon: everything is in shade."
+  },
+  "map": {
+    "zoomIn": "Zoom in to see shadows",
+    "loading": "Loading shadows…",
+    "error": "The map could not be loaded. Check your connection and reload.",
+    "dataNote": "Shadows computed from 2021 LiDAR data: buildings built or demolished since are not shown. Awnings and parasols are not modelled.",
+    "shadowsUnavailable": "Shadows are unavailable right now: your browser may not support WebGL 2, or the height data could not be loaded. The map still works.",
+    "label": "Map of Brussels",
+    "dataLabel": "About the data"
+  },
+  "locale": {
+    "label": "Language"
+  }
+}

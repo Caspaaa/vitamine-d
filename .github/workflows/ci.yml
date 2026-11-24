@@ -1,0 +1,29 @@
+name: CI
+
+# Typecheck, unit tests and a production build of the web app. The browser tests (GPU harness, app e2e) run locally:
+# the app tests need the 230 MB height tiles, which are not in the repository.
+on:
+  push:
+    branches: [main]
+    paths: ['apps/**', 'packages/**', 'package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'tsconfig.base.json', '.github/workflows/ci.yml']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4 # version comes from "packageManager" in package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test
+      - name: Build (static export, tiles hosted elsewhere)
+        run: pnpm build
+        env:
+          NEXT_PUBLIC_DATA_URL: https://example.invalid/urbis-2021

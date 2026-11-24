@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "incremental": true,
+    "allowJs": false,
+    "plugins": [{ "name": "next" }],
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["next-env.d.ts", "src", "scripts", "e2e", "playwright.config.ts", "**/*.mts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "out"]
+}

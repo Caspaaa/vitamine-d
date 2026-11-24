@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "Vitamine D",
+    "title": "Vitamine D: sol y sombra en Bruselas",
+    "description": "Descubre dónde da el sol en Bruselas ahora y en las próximas horas: las sombras en directo de cada edificio y de cada árbol, para cualquier fecha y hora."
+  },
+  "search": {
+    "label": "Buscar una dirección",
+    "placeholder": "Buscar una dirección en Bruselas",
+    "searching": "Buscando…",
+    "noResults": "No se ha encontrado ninguna dirección",
+    "error": "La búsqueda no está disponible en este momento. Inténtalo de nuevo en unos instantes.",
+    "clear": "Borrar la búsqueda",
+    "results": "{count, plural, one {# resultado} other {# resultados}}"
+  },
+  "locate": {
+    "label": "Mostrar mi ubicación",
+    "locating": "Buscando tu posición…",
+    "denied": "La ubicación está bloqueada para este sitio. Escribe una dirección en su lugar.",
+    "unavailable": "No se ha podido encontrar tu posición. Escribe una dirección en su lugar.",
+    "outside": "Parece que estás fuera de Bruselas. Las sombras solo están disponibles en la Región de Bruselas-Capital."
+  },
+  "time": {
+    "now": "Ahora",
+    "play": "Reproducir el día",
+    "pause": "Pausa",
+    "date": "Fecha",
+    "slider": "Hora del día",
+    "sunrise": "Amanecer {time}",
+    "sunset": "Atardecer {time}",
+    "sunAltitude": "Sol a {altitude}° sobre el horizonte",
+    "night": "El sol está bajo el horizonte: todo está a la sombra."
+  },
+  "map": {
+    "zoomIn": "Acerca el mapa para ver las sombras",
+    "loading": "Cargando sombras…",
+    "error": "No se ha podido cargar el mapa. Comprueba tu conexión y recarga la página.",
+    "dataNote": "Sombras calculadas con datos LiDAR de 2021: los edificios construidos o demolidos desde entonces no aparecen. Los toldos y las sombrillas no se modelan.",
+    "shadowsUnavailable": "Las sombras no están disponibles en este momento: puede que tu navegador no admita WebGL 2 o que no se hayan podido cargar los datos de altura. El mapa sigue funcionando.",
+    "label": "Mapa de Bruselas",
+    "dataLabel": "Sobre los datos"
+  },
+  "locale": {
+    "label": "Idioma"
+  }
+}

@@ -25,3 +25,14 @@ spikes/s4-pipeline/hosting/site*/
 spikes/s4-pipeline/hosting/package-lock.json
 spikes/s3-terraces/data/venues-raw.json
 spikes/s3-terraces/data/venues.json
+
+# M1 app
+.next/
+apps/web/out/
+apps/web/public/data
+apps/web/public/sw.js*
+apps/web/public/swe-worker*
+*.tsbuildinfo
+test-results/
+playwright-report/
+apps/web/public/vendor/

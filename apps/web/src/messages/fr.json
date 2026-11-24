@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "Vitamine D",
+    "title": "Vitamine D : soleil et ombre à Bruxelles",
+    "description": "Voyez où le soleil brille à Bruxelles maintenant et dans les prochaines heures : les ombres en direct de chaque bâtiment et de chaque arbre, pour n'importe quelle date et heure."
+  },
+  "search": {
+    "label": "Rechercher une adresse",
+    "placeholder": "Rechercher une adresse à Bruxelles",
+    "searching": "Recherche…",
+    "noResults": "Aucune adresse trouvée",
+    "error": "La recherche est indisponible pour le moment. Réessayez dans un instant.",
+    "clear": "Effacer la recherche",
+    "results": "{count, plural, one {# résultat} other {# résultats}}"
+  },
+  "locate": {
+    "label": "Afficher ma position",
+    "locating": "Recherche de votre position…",
+    "denied": "La localisation est bloquée pour ce site. Saisissez plutôt une adresse.",
+    "unavailable": "Votre position n'a pas pu être trouvée. Saisissez plutôt une adresse.",
+    "outside": "Vous semblez être hors de Bruxelles. Les ombres ne sont disponibles que dans la Région de Bruxelles-Capitale."
+  },
+  "time": {
+    "now": "Maintenant",
+    "play": "Lire la journée",
+    "pause": "Pause",
+    "date": "Date",
+    "slider": "Heure de la journée",
+    "sunrise": "Lever du soleil {time}",
+    "sunset": "Coucher du soleil {time}",
+    "sunAltitude": "Soleil à {altitude}° au-dessus de l'horizon",
+    "night": "Le soleil est sous l'horizon : tout est à l'ombre."
+  },
+  "map": {
+    "zoomIn": "Zoomez pour voir les ombres",
+    "loading": "Chargement des ombres…",
+    "error": "La carte n'a pas pu être chargée. Vérifiez votre connexion et rechargez la page.",
+    "dataNote": "Ombres calculées à partir de données LiDAR de 2021 : les bâtiments construits ou démolis depuis ne sont pas pris en compte. Les stores et parasols ne sont pas modélisés.",
+    "shadowsUnavailable": "Les ombres sont indisponibles pour le moment : votre navigateur ne prend peut-être pas en charge WebGL 2, ou les données de hauteur n'ont pas pu être chargées. La carte reste utilisable.",
+    "label": "Carte de Bruxelles",
+    "dataLabel": "À propos des données"
+  },
+  "locale": {
+    "label": "Langue"
+  }
+}

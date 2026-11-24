@@ -1,0 +1,72 @@
+# Milestone M1 — Shadows on Brussels: result
+
+**Status: built and verified in browsers (Chromium and WebKit, headless); the Pixel 8 check is still to do.** A user can open the app, see live shadows of every building and tree in Brussels, scrub the time or pick any date, find themselves or search an address, in five languages, installable and usable offline once seen. *Done when* "a user can scrub shadows on their phone anywhere in Brussels" is therefore **not yet fully met**: it needs an HTTPS preview and the phone (see "Not tested").
+
+Code: [apps/web/](../apps/web/) · [packages/shadow/](../packages/shadow/) · [packages/sun/](../packages/sun/) · Spec: [SPEC.md §6, §8, §11](SPEC.md)
+
+## What was built
+
+| Piece | What it does |
+|---|---|
+| `packages/sun` | Sun position (suncalc, degrees), sunrise/sunset, the scrubber range (sunrise − 20 min … sunset + 20 min, 5-min steps) and Brussels wall-clock handling: UTC instants in, `Europe/Brussels` out, with 23- and 25-hour days. 18 unit tests, including sunrise/sunset against api.sunrise-sunset.org for 7 dates (±2 min). |
+| `packages/shadow` | The S1 renderer as a streaming engine. Height tiles flow through a **ring buffer of 16 × 16 tile slots** (one 4096² `R16UI` texture with 8 mips) so panning uploads only the tiles that enter; a MapLibre custom layer traces the shadow mask at the data's own resolution, blurs it, and composites it under the labels. 17 unit tests for the bookkeeping, plus a GPU harness. |
+| `apps/web` | Next.js 16 **static export** (no server at request time): MapLibre map on OpenFreeMap "Liberty" with opaque 3D buildings, search (Photon), locate-me, time panel (scrubber, date, Now, play), 5 locales under `/fr /nl /en /de /es`, URL state, PWA (manifest, icons, service worker). |
+
+### How the ring buffer works (the core of M1)
+- Tile `(x, y)` always lives in slot `(x mod 16, y mod 16)`. The window origin is the tile in its north-west corner; the shader receives it as `u_origin` and wraps every cell lookup: `slot(cell, lod) = (cell + (origin >> lod)) & (size >> lod − 1)`.
+- **Invariant: a slot holds the right tile or zeros.** A slot is zero-filled the moment its tile leaves the window, so a ray can never read another tile's heights ("ghost shadows"). Rays that leave the window return "lit".
+- The window moves only when the needed tile rectangle (visible area + 500 m ray margin) leaves it. A jump of more than 96 tiles recreates the texture instead of clearing slot by slot.
+- Each tile builds its own mip chain (a tile is 256 px = 2⁸, so levels 0–7 never straddle tiles). Tiles near the map centre load first; queued requests for tiles the map moved away from are cancelled.
+- Coverage: shadows are drawn from **zoom 15**, over a square of about ±800 m around the map centre (the 16-tile window minus the 500 m ray margin). Beyond that the window cannot serve the view.
+
+## Verification
+
+| Check | Result |
+|---|---|
+| Unit tests | 58 pass (sun 18, shadow 17, web 23: URL state, locale negotiation, **message catalogs have identical keys and ICU placeholders in all 5 languages**) |
+| **GPU harness** (`pnpm --filter @vitamine/shadow e2e`, synthetic world, real WebGL 2) | Wall shadow **23 px vs 22.97 px analytic**, measured across the slot 15 → 0 wrap · identical mask after the window shifts by 4 tiles · identical mask after a full reset and return · no ghost shadow from tiles that left the window · mirrored shadow for a sun in the east · night is all shade. **Negative control:** with slot clearing disabled the ghost check fails with 920 px, so the test can fail. |
+| **App e2e** (`pnpm --filter @vitamine/web e2e`; Chromium with a Pixel 7 profile and WebKit with an iPhone 15 profile) | 8 tests × 2 engines pass: shadows change when the time is scrubbed · night message · date/time in the URL and "Now" clears it · address search flies the map (Photon mocked) · language switch keeps time and view · locate inside Brussels / outside Brussels / permission denied |
+| Panning across Brussels | 4 jumps between Uccle, Schaerbeek, Flagey and the centre: window shifts each time, 80–122 tiles resident, 1.4–2.4 s until `ready` on the dev server (including a 0.5 s settle) |
+| Production build | `next build` emits a 74-file, 9.9 MB static site; **no height tiles inside it** (the build removes the dev symlink, the data is hosted separately) |
+| Production smoke test | App on one origin, tiles on another with CORS: 82 tile requests, no HTTP error, service worker `activated`; **after a reload with the network switched off, the app, the basemap and the shadows still render** |
+| Pitched and rotated view | Shadows on the streets, 3D buildings opaque (checked by eye at pitch 55°, bearing 30°) |
+
+## Decisions and things learnt
+
+- **MapLibre 6 needs its worker served by you.** It ships an ES-module worker plus a shared chunk; bundlers do not emit them reliably. `scripts/copy-vendor.mjs` copies both to `public/vendor` and the app calls `setWorkerUrl`. (Both are git-ignored and regenerated by `predev` and `build`.)
+- **The attribution control is a `<details>` element in MapLibre 6**, so collapsing it means removing the `open` attribute, not a CSS class.
+- **The Liberty style references a few sprites missing from its own sheet** (`office`, `bollard`, `gate`…). A `styleimagemissing` handler adds a transparent pixel; the `highway-shield-*` filter warnings in the console are in the upstream style and harmless.
+- **The service worker must know the data URL.** In production the tiles live on another origin, so `stamp-sw.mjs` writes `NEXT_PUBLIC_DATA_URL` into `sw.js`; height tiles are cache-first (the path is versioned, `urbis-2021`), the tile index is stale-while-revalidate, the basemap tiles stale-while-revalidate, the app shell network-first. Found by the offline smoke test: the first version only cached `.png` tiles under a path containing `/urbis-2021/` and never the tile index served from another origin, so an offline start lost the shadows.
+- **Headless tests use SwiftShader** (`--use-angle=swiftshader`) to get WebGL 2; the same flags run the GPU harness.
+- **A test that opens the map below zoom 15 never reaches `ready`**: the layer reports `zoomed-out` by design. (This cost one wrong test run, not an app bug.)
+- Time is formatted 24-hour in every locale; the time zone is always Brussels, whatever the phone says.
+- Everything is client-side: the position never leaves the device; search sends only the typed text to Photon.
+
+## Known limits
+- **Shadow coverage is ±800 m around the centre.** A phone held upright at zoom 15 shows about ±0.64 km vertically, so it is fully covered; **tilted (pitched) views, tablets and desktop windows zoomed out to 15–15.5 are expected to lose shadows at the edges (by design of the window clamp; not yet looked at on a device).** Raising the minimum zoom or limiting the pitch are the cheap fixes if it looks wrong on the phone.
+- A first screen costs about 80–120 height tiles (≈ 3–4 MB at the 35 KB mean of S4); later screens in the same area are served from the service worker cache.
+- Shadows from the 2021 LiDAR: new and demolished buildings are wrong (the app says so in "About the data"); awnings and parasols are not modelled.
+- Search needs the network (Photon); only the last typed results of a session are cached.
+
+## Not tested (yet)
+- **A real phone.** No Pixel 8 run of the streaming engine (S1 measured 60 fps for a single window on a Pixel 8; the ring buffer and window changes are new). Needs the HTTPS preview below.
+- **Real iOS Safari** (WebKit in Playwright is close, not identical) and low-end Android.
+- Geolocation on a phone (browsers only allow it on HTTPS or localhost).
+- Real Photon latency and fair-use behaviour from a phone on 4G.
+- Installing the PWA from the browser menu and the iOS "Add to Home Screen" flow.
+
+## Open for the next step
+1. **HTTPS preview for the phone.** Cheapest without an account: a temporary tunnel to the dev machine. Alternative: a Cloudflare Pages project for the app (and one for the tiles), which needs `wrangler login` again.
+2. Decide the app host (Vercel vs Cloudflare Pages, SPEC §13) before the donation link.
+3. M2 ("Sun now") starts from the place snapshot already built in S4.
+
+## Reproduce
+```bash
+pnpm install
+pnpm --filter @vitamine/web data:link   # dev only: links spikes/s4-pipeline/out (build it first: docs/spikes/S4-pipeline-hosting.md)
+pnpm dev                                # http://localhost:3000
+pnpm typecheck && pnpm test             # unit tests
+pnpm --filter @vitamine/shadow e2e      # GPU harness
+pnpm --filter @vitamine/web e2e         # app tests (Chromium + WebKit; run `pnpm exec playwright install chromium webkit` once)
+NEXT_PUBLIC_DATA_URL=https://<tiles-host>/urbis-2021 pnpm build   # static site in apps/web/out
+```

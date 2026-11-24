@@ -1,0 +1,33 @@
+{
+  "name": "@vitamine/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "node scripts/link-data.mjs --unlink && node scripts/copy-vendor.mjs && node scripts/stamp-sw.mjs && next build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run src",
+    "e2e": "playwright test",
+    "data:link": "node scripts/link-data.mjs",
+    "predev": "node scripts/copy-vendor.mjs && node scripts/link-data.mjs --if-available"
+  },
+  "dependencies": {
+    "@vitamine/shadow": "workspace:*",
+    "@vitamine/sun": "workspace:*",
+    "maplibre-gl": "^6.19.0",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "use-intl": "^4.15.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  }
+}

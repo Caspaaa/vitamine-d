@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "Vitamine D",
+    "title": "Vitamine D: Sonne und Schatten in Brüssel",
+    "description": "Sehen Sie, wo in Brüssel jetzt und in den nächsten Stunden die Sonne scheint: Schatten jedes Gebäudes und jedes Baums in Echtzeit, für jedes Datum und jede Uhrzeit."
+  },
+  "search": {
+    "label": "Adresse suchen",
+    "placeholder": "Adresse in Brüssel suchen",
+    "searching": "Suche läuft…",
+    "noResults": "Keine Adresse gefunden",
+    "error": "Die Suche ist gerade nicht verfügbar. Bitte versuchen Sie es gleich noch einmal.",
+    "clear": "Suche löschen",
+    "results": "{count, plural, one {# Ergebnis} other {# Ergebnisse}}"
+  },
+  "locate": {
+    "label": "Meinen Standort anzeigen",
+    "locating": "Ihr Standort wird ermittelt…",
+    "denied": "Der Standortzugriff ist für diese Website blockiert. Geben Sie stattdessen eine Adresse ein.",
+    "unavailable": "Ihr Standort konnte nicht ermittelt werden. Geben Sie stattdessen eine Adresse ein.",
+    "outside": "Sie scheinen sich außerhalb von Brüssel zu befinden. Schatten gibt es nur in der Region Brüssel-Hauptstadt."
+  },
+  "time": {
+    "now": "Jetzt",
+    "play": "Tag abspielen",
+    "pause": "Pause",
+    "date": "Datum",
+    "slider": "Tageszeit",
+    "sunrise": "Sonnenaufgang {time}",
+    "sunset": "Sonnenuntergang {time}",
+    "sunAltitude": "Sonne {altitude}° über dem Horizont",
+    "night": "Die Sonne steht unter dem Horizont: Alles liegt im Schatten."
+  },
+  "map": {
+    "zoomIn": "Zoomen Sie hinein, um Schatten zu sehen",
+    "loading": "Schatten werden geladen…",
+    "error": "Die Karte konnte nicht geladen werden. Prüfen Sie Ihre Verbindung und laden Sie die Seite neu.",
+    "dataNote": "Schatten aus LiDAR-Daten von 2021 berechnet: Seitdem gebaute oder abgerissene Gebäude sind nicht berücksichtigt. Markisen und Sonnenschirme werden nicht abgebildet.",
+    "shadowsUnavailable": "Schatten sind gerade nicht verfügbar: Ihr Browser unterstützt möglicherweise kein WebGL 2, oder die Höhendaten konnten nicht geladen werden. Die Karte funktioniert trotzdem.",
+    "label": "Karte von Brüssel",
+    "dataLabel": "Zu den Daten"
+  },
+  "locale": {
+    "label": "Sprache"
+  }
+}

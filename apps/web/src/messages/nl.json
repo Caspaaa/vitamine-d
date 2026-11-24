@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "Vitamine D",
+    "title": "Vitamine D: zon en schaduw in Brussel",
+    "description": "Zie waar de zon nu schijnt in Brussel en in de komende uren: live schaduwen van elk gebouw en elke boom, voor elke datum en tijd."
+  },
+  "search": {
+    "label": "Zoek een adres",
+    "placeholder": "Zoek een adres in Brussel",
+    "searching": "Zoeken…",
+    "noResults": "Geen adres gevonden",
+    "error": "Zoeken is momenteel niet beschikbaar. Probeer het zo dadelijk opnieuw.",
+    "clear": "Zoekopdracht wissen",
+    "results": "{count, plural, one {# resultaat} other {# resultaten}}"
+  },
+  "locate": {
+    "label": "Toon mijn locatie",
+    "locating": "Je positie wordt gezocht…",
+    "denied": "Locatie is geblokkeerd voor deze site. Typ in plaats daarvan een adres.",
+    "unavailable": "Je positie kon niet worden bepaald. Typ in plaats daarvan een adres.",
+    "outside": "Je lijkt buiten Brussel te zijn. Schaduwen zijn alleen beschikbaar in het Brussels Hoofdstedelijk Gewest."
+  },
+  "time": {
+    "now": "Nu",
+    "play": "Dag afspelen",
+    "pause": "Pauze",
+    "date": "Datum",
+    "slider": "Tijdstip van de dag",
+    "sunrise": "Zonsopgang {time}",
+    "sunset": "Zonsondergang {time}",
+    "sunAltitude": "Zon {altitude}° boven de horizon",
+    "night": "De zon staat onder de horizon: alles ligt in de schaduw."
+  },
+  "map": {
+    "zoomIn": "Zoom in om schaduwen te zien",
+    "loading": "Schaduwen laden…",
+    "error": "De kaart kon niet worden geladen. Controleer je verbinding en laad de pagina opnieuw.",
+    "dataNote": "Schaduwen berekend met LiDAR-gegevens uit 2021: sindsdien gebouwde of gesloopte gebouwen zijn niet zichtbaar. Zonneschermen en parasols zijn niet gemodelleerd.",
+    "shadowsUnavailable": "Schaduwen zijn momenteel niet beschikbaar: je browser ondersteunt mogelijk geen WebGL 2, of de hoogtegegevens konden niet worden geladen. De kaart werkt wel.",
+    "label": "Kaart van Brussel",
+    "dataLabel": "Over de gegevens"
+  },
+  "locale": {
+    "label": "Taal"
+  }
+}
