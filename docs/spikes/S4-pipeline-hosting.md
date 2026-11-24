@@ -1,6 +1,6 @@
 # Spike S4 — Pipeline operations and free hosting: result
 
-**Verdict: GO.** All of Brussels fits the free tiers with a wide margin, the whole data chain runs unattended on a free GitHub runner, and every Cloudflare Pages limit was tested for real. Four surprises to design around (all cheap): a missing tile returns **200 + HTML** unless a `404.html` exists; **range requests are not supported** (the PMTiles basemap fallback must change); header rules **add up** instead of overriding; and an Overpass call from a runner **failed once** (network unreachable).
+**Verdict: GO.** All of Brussels fits the free tiers with a wide margin, the whole data chain runs unattended on a free GitHub runner, and every Cloudflare Pages limit was tested for real. Four surprises to design around (all cheap): a missing tile returns **200 + HTML** unless a `404.html` exists; **range requests are not supported** (the PMTiles basemap fallback must change); header rules **add up** instead of overriding; and the public **Overpass servers were unreliable from a runner in 2 of 3 runs**, so the venue extract must be cached.
 
 Code: [spikes/s4-pipeline/](../../spikes/s4-pipeline/) · CI: [.github/workflows/](../../.github/workflows/) · Spec: [SPEC.md §6.1, §7, §8](../SPEC.md)
 
@@ -10,7 +10,7 @@ Code: [spikes/s4-pipeline/](../../spikes/s4-pipeline/) · CI: [.github/workflows
 |---|---|---|---|
 | 1. Download | 216 DSM + 216 DTM zips (4.5 GB) → compressed cache | 12.6 min (6.0 MB/s), 268 MB RAM, 3.0 GB disk | **3.4 min** (22.4 MB/s), 306 MB RAM |
 | 2. Tiles | z17 PNG height tiles | **1.9 min** (7 procs), 180 MB RAM | 7.2 min (3 procs), 274 MB RAM |
-| 3. Seed terraces | Overpass venues + UrbIS footprints + method A (S3) | 32 s (venues cached) | 93 s (includes the Overpass call) |
+| 3. Seed terraces | Overpass venues + UrbIS footprints + method A (S3) | 32 s (venues cached) | 93 s; **468 s** when Overpass was overloaded (retries) |
 | 4. Horizons + snapshot | 29,448 horizon points → 204 snapshot files | 64 s (tiles on disk), 132 s (tiles from Pages) | 145 s (tiles from Pages), 562 MB RAM |
 
 - **Steps 1–2 are one-off** (a new UrbIS release every few years). **Steps 3–4 are the frequent job** (every batch of terrace edits). A whole run of steps 3–4 on a free runner is about **5 minutes**.
@@ -76,7 +76,8 @@ A cold phone view of 400 × 800 m plus a 500 m ray margin is about 100 DSM tiles
 - **Limits:** 6 hours per job, 35 days per workflow run, 10 GB cache per repo. The docs say 14 GB disk; the runner showed 91 GB free on `/` (not relied on).
 - **Observed:** tile build 11 min, snapshot job about 5 min, both green. The tile job needs no cache because it streams from the UrbIS server.
 - **Scheduled workflows:** run only on the default branch, can be **delayed or dropped at the top of the hour** (use an odd minute), and in public repos are **automatically disabled after 60 days without repository activity**.
-- **Overpass is flaky from a runner:** the first run failed 5 times with `Network is unreachable` for `overpass-api.de`; the next run, minutes later, worked. The import now tries four public instances in rounds. Cache the last good venue file as a fallback.
+- **Runners are IPv4-only:** every IPv6 request failed instantly (`Network is unreachable`), including to Cloudflare. All data hosts answered over IPv4 (UrbIS footprints 200, Pages 200 in 0.15 s).
+- **Overpass is the weak link from a runner.** Run 1: 5 failures with `Network is unreachable`. Run 2: first try worked. Run 3: `overpass-api.de` 502, `kumi.systems` timeout, `private.coffee` empty answer, `maps.mail.ru` 504, then `overpass-api.de` worked in the second round: the seed step took **468 s instead of 93 s**. The import now tries four public instances in rounds, but the real fix is to **not depend on it for every run**: keep the venue extract cached and refresh it in its own weekly job.
 - **A CI pitfall:** `cmd | tee log` hid a failing step (the job reported success while producing nothing). All workflows now use `bash -eo pipefail` and `time -o`.
 - **Not tested:** deploying from CI to Pages. It needs a Cloudflare API token (scope: Pages edit) and the account id as repository secrets; the same `wrangler pages deploy` command ran fine locally.
 
@@ -90,10 +91,11 @@ Free projects "may be paused" after 7 days of low activity (docs wording is soft
 4. **Client rules:** simple GET requests only, no custom headers; read the tile `index.json` and never request tiles that are not listed.
 5. **DTM tiles can wait:** the DTM set (48 MB) is only needed for the terrace editor preview, not for the shadow map. Packing it into the unused B channel of the DSM tile would halve the file count, but is not needed (10,100 files < 20,000).
 6. Keep the repo public; schedule crons at odd minutes; add the second keep-alive in M5.
+7. **Venue import is its own job** (weekly, tolerant of failure) that writes a cached extract (committed file or Pages asset); the frequent seed + horizon job reads the cache and never calls Overpass. OSM edits are small (3,330 → 3,333 elements between two runs three hours apart on 24 Nov).
 
 ## Caveats
 - Speed numbers are from one connection in Belgium, not from phones or other countries.
-- One Overpass failure in two runs is not a statistic, and it was not diagnosed (the diagnostic step stopped at its first timeout, now fixed).
+- Three CI runs are an anecdote, not a reliability measurement: Overpass could be better or worse at other times.
 - The test project and the CI default point at `vitamine-d-s4-test.pages.dev`, which is deleted after the spike; set the repository variable `TILES_URL` once the real data project exists.
 - UrbIS downloads at 6 to 22 MB/s depending on where you are; a slow day could double the one-off step.
 
